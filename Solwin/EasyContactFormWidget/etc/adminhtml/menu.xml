@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin_EasyContactFormWidget Menu
+ *
+ * @category    Solwin
+ * @package     Solwin_EasyContactFormWidget
+ * @author      Solwin 
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Solwin_EasyContactFormWidget::manager" title="Easy Contact Form" module="Solwin_EasyContactFormWidget" sortOrder="10" resource="Solwin_EasyContactFormWidget::manager"/>
+        	<add id="Solwin_EasyContactFormWidget::add_row" title="Manage Contact Form Data" module="Solwin_EasyContactFormWidget" sortOrder="20" parent="Solwin_EasyContactFormWidget::manager" action="solwin/cform" resource="Solwin_EasyContactFormWidget::add_row"/>
+    </menu>
+</config>

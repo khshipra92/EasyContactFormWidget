@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin_EasyContactFormWidget Menu
+ *
+ * @category    Solwin
+ * @package     Solwin_EasyContactFormWidget
+ * @author      Solwin 
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="solwin" frontName="solwin">
+            <module name="Solwin_EasyContactFormWidget" />
+        </route>
+    </router>
+</config>

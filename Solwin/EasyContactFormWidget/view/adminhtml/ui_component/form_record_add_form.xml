@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Solwin_EasyContactFormWidget
+ *
+ * @category    Solwin
+ * @package     Solwin_EasyContactFormWidget
+ * @author      Solwin 
+ *
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">form_record_add_form.form_record_add_form_data_source</item>
+            <item name="deps" xsi:type="string">form_record_add_form.form_record_add_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">form_record_add_form</item>
+        </item>
+        <item name="spinner" xsi:type="string">information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Solwin\EasyContactFormWidget\Block\Adminhtml\Edit\Button\Back"/>
+            <button name="save" class="Solwin\EasyContactFormWidget\Block\Adminhtml\Edit\Button\Save"/>
+        </buttons>
+        <namespace>form_record_add_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>form_record_add_form.form_record_add_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="form_record_add_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Solwin\EasyContactFormWidget\Model\LabelDataProvider</argument>
+            <argument name="name" xsi:type="string">form_record_add_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save" />
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="label_details">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Form Information</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true"> Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">grid</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    <field name="gender">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">radioset</item>
+                    <item name="source" xsi:type="string">custom_entity_form</item>
+                    <item name="label" xsi:type="string" translate="true">Gender</item>
+                    <item name="options" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Male</item>
+                            <item name="value" xsi:type="string">Male</item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Female</item>
+                            <item name="value" xsi:type="string">Female</item>
+                        </item>
+                        <item name="2" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Other</item>
+                            <item name="value" xsi:type="string">Other</item>
+                        </item>
+                    </item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElementTmpl" xsi:type="string">ui/form/element/radio</item>
+                </item>
+                 <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+            </argument>
+        </field>
+
+        <field name="dob">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">DOB</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="source" xsi:type="string">catalog_rule</item>
+                    <item name="dataScope" xsi:type="string">dob</item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">mm-dd-yyyy</item>
+                         <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
+                        <item name="showsTime" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="query" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>int</dataType>
+                <label translate="true">Query</label>
+                <dataScope>query</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Solwin\EasyContactFormWidget\Model\Query\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="message">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true"> Message</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">grid</item>
+                    <item name="dataScope" xsi:type="string">message</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+   </fieldset>
+</form>

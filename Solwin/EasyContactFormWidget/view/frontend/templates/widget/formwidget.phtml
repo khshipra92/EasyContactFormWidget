@@ -1,0 +1,160 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<?php
+if ($block->getData('fname')) {
+    $name = $block->getData('fname').'*';
+}
+if ($block->getData('fname_place')) {
+    $name_place = $block->getData('fname_place');
+}
+if ($block->getData('gender')) {
+    $gender = $block->getData('gender').'*';
+}
+if ($block->getData('dob')) {
+    $dob = $block->getData('dob').'*';
+}
+if ($block->getData('query')) {
+    $query = $block->getData('query');
+}
+if ($block->getData('message')) {
+    $message = $block->getData('message');
+}
+if ($block->getData('message_place')) {
+    $message_place = $block->getData('message_place');
+}
+
+?>
+<div class="container">
+        <div class=" text-center mt-5 ">
+            <?php if ($block->getData('widgettitle')): ?>
+                <h2 class='toptal-title'><?=$block->getData('widgettitle')?></h2>
+            <?php endif; ?>
+         </div>
+
+    <div class="row ">
+      <div class="col-lg-7 mx-auto">
+        <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+            <div class = "container">
+                <form class="contact-form" id="contact-form" method="post" role="form">
+            <div class="controls">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_name"><?=$name?></label>
+                            <input id="form_name" type="text" 
+                            name="name" class="required-entry" 
+                            placeholder="<?=$name_place?>">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_gender"><?=$gender?></label>
+                            <div class="row justify-content-center form-group">
+                                <div class="col-12 px-auto">
+                                    <div class="custom-control custom-radio custom-control-inline"> 
+                                        <input type="radio" name="gender" value="Male" checked="checked"> 
+                                        <label class="label-radio">Male</label> 
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline"> 
+                                        <input type="radio" name="gender" value="female"> 
+                                        <label class="label-radio">Female</label> 
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline"> 
+                                        <input type="radio" name="gender" value="other"> 
+                                        <label class="label-radio">Other</label> 
+                                </div>
+                        </div>
+                    </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_dob"><?=$dob?></label>
+                            <input id="form_dob" type="date" name="dob" class="form-control" required="required" 
+                            data-error="Valid Date is required.">
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_need"><?=$query?></label>
+                            <select id="form_need" name="query" class="form-control" required="required" 
+                            data-error="Please specify your need.">
+                                <option value="" selected disabled>--Select Your Issue--</option>
+                                <option value="0">Request Invoice for order</option>
+                                <option value="1">Request order status</option>
+                                <option value="2">Haven't received cashback yet</option>
+                                <option value="3">Other</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="form_message"><?=$message?></label>
+                            <textarea id="form_message" name="message" 
+                            class="required-entry validate-no-html-tags" 
+                            placeholder="<?=$message_place?>" rows="4">
+                                
+                            </textarea
+                                >
+                            </div>
+
+                        </div>
+
+
+                    <div class="col-md-12">
+                        <button type="submit">Submit</button>
+                        <!-- <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
+                            " value="Send Message" > -->
+                    
+                </div>
+          
+                </div>
+
+
+        </div>
+         </form>
+        </div>
+            </div>
+
+
+    </div>
+        <!-- /.8 -->
+
+    </div>
+    <!-- /.row-->
+
+</div>
+</div>
+
+<script type="text/javascript">
+    require([
+    'jquery',
+    'mage/validation'
+    ], function($){
+        var dataForm = $('#contact-form');
+        dataForm.mage('validation', {});
+        $("#contact-form").submit(function(e){
+            var status = dataForm.validation('isValid');
+            if(status){
+                $.ajax({
+                    url: '<?=$escaper->escapeUrl($block->getUrl('solwin/action/save')); ?>',
+                    type: "POST",
+                    data: $(this).serialize(),
+                    showLoader: true,
+                    success: function(response){
+                }
+                });
+            }else{
+                console.log('form is not validated');
+            }
+        });
+
+    });
+</script>

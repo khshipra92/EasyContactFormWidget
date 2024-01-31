@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Solwin_EasyContactFormWidget
+ *
+ * @category    Solwin
+ * @package     Solwin_EasyContactFormWidget
+ * @author      Solwin 
+ *
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+	<widget class="Solwin\EasyContactFormWidget\Block\Widget\Formwidget" id="solwin_form_widget">
+		<label>Easy Contact Form Widget</label>
+		<description></description>
+		<parameters>
+			<parameter name="widgettitle" sort_order="10" visible="true" xsi:type="text">
+				<label>Easy Contact Form</label>
+			</parameter>
+			<parameter name="fname" sort_order="11" visible="true" xsi:type="text">
+				<label>Title For Name Field</label>
+				<value>Full Name *</value>
+			</parameter>
+			<parameter name="fname_place" sort_order="12" visible="true" xsi:type="text">
+				<label>Placeholder value for Name Field</label>
+				<value>Please enter your fullname *</value>
+			</parameter>
+			<parameter name="gender" sort_order="15" visible="true" xsi:type="text">
+				<label>Title For Gender Field</label>
+				<value>Gender *</value>
+			</parameter>
+			<parameter name="dob" sort_order="16" visible="true" xsi:type="text">
+				<label>Title For DOB Field</label>
+				<value>Date of Birth *</value>
+			</parameter>
+			<parameter name="query" sort_order="17" visible="true" xsi:type="text">
+				<label>Title For Query Field</label>
+				<value>Area Of Query *</value>
+			</parameter>
+			<parameter name="message" sort_order="19" visible="true" xsi:type="text">
+				<label>Title For Message Field</label>
+				<value>Message *</value>
+			</parameter>
+			<parameter name="message_place" sort_order="20" visible="true" xsi:type="text">
+				<label>Placeholder value for Message Field</label>
+				<value>Write your message here *</value>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

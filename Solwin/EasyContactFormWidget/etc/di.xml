@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Solwin_EasyContactFormWidget
+ *
+ * @category    Solwin
+ * @package     Solwin_EasyContactFormWidget
+ * @author      Solwin 
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Solwin\EasyContactFormWidget\Api\Data\CformInterface" type="Solwin\EasyContactFormWidget\Model\Cform" />
+
+    <virtualType name="Solwin\EasyContactFormWidget\Model\ResourceModel\Cform\Cform\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">solwin_form_data</argument>
+            <argument name="resourceModel" xsi:type="string">Solwin\EasyContactFormWidget\Model\ResourceModel\Cform</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="form_record_list_data_source" xsi:type="string">Solwin\EasyContactFormWidget\Model\ResourceModel\Cform\Cform\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
